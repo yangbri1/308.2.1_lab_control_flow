@@ -118,3 +118,31 @@ console.log(`action taken: `, action, `\n`);
 /* ------------------ Part 2: Thinking Bigger ------------------ */
 
 
+// given a sample size of 100 plants and 10 weeks to grow ... 
+sample_size = 100;
+weeks = 10;
+
+// under the same constraints as earlier where ...
+// 1) each plant requires a minimum space of 0.8 square meters
+// 2) plant count doubles each week -- rate of growth
+// 3) within a circular garden
+
+// objective: if the space remained circular, what would be the radius of this expanded garden?
+
+plant_count = sample_size * 2**weeks;   // yields total amount of plants after 10 weeks
+space_taken = plant_count * plant_area; // calculates total area taken up by the plants
+// console.log(plant_count, space_taken);
+
+// assign the plants' occupied area to new garden area (m^2)
+let new_garden_area = space_taken;
+
+// solve for radius in the area of a circle formula to
+// calculate radius of the new garden area using the JavaScript built-in square root method
+let new_garden_radius = Math.sqrt(new_garden_area / PI);
+console.log(`Under the same constraints but with a sample size of 100 plants and 10 weeks,
+    the radius of the expanded garden would come out to be ${new_garden_radius} meters squared.\n`);
+
+
+
+
+
