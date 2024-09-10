@@ -6,7 +6,7 @@
 
 
 /* ------------------ Part 1: Growing Pains ------------------ */
-
+console.log(`/* ------------------ Part 1: Growing Pains ------------------ */`);
 
 // given information 
 let radius = 5; // units: meters 
@@ -116,7 +116,7 @@ console.log(`action taken: `, action, `\n`);
 
 
 /* ------------------ Part 2: Thinking Bigger ------------------ */
-
+console.log(`/* ------------------ Part 2: Thinking Bigger ------------------ */`);
 
 // given a sample size of 100 plants and 10 weeks to grow ... 
 sample_size = 100;
@@ -146,21 +146,20 @@ console.log(`Under the same constraints but with a sample size of 100 plants and
 
 
 /* ------------------ Part 3: Errors in Judgement ------------------ */
+console.log(`/* ------------------ Part 3: Errors in Judgement ------------------ */`);
 
 // given sample_size = 100 & radius = 5;
 /* objective: Use try and catch to wrap your work in an error-handling block. If the amount of space required to
 hold the originally provided number of plants exceeds the amount of space available, throw a new
 error and log an appropriate message */
 
-console.log(`Area of the original 5-meter-radius garden: `, total_area, `meters^2`);
+console.log(`Area of the original 5-meter-radius garden: `, total_area, `meters^2\n`);
 
 // calculating the area required to fit in the initial 100 plants ...
 weeks = 0;
 plant_count = sample_size * 2**weeks;   
 space_taken = plant_count * plant_area; 
 // console.log(plant_count, space_taken);
-console.log(`With a total area of ${total_area} for the 5-meter long garden and the total amount of area
-    required to place down 100 plants being ${space_taken} meters^2, it had already far exceeded the limit`);
 
 try{
     if(space_taken < total_area){
@@ -172,4 +171,8 @@ try{
 }
 catch(error){
     console.log(error);
+}
+finally{
+    console.log(`\nTherefore with a ${space_taken} meters^2, it had already far exceeded
+         the ${total_area} meters^2 garden size limit.`);
 }
