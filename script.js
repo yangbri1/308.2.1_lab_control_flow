@@ -129,8 +129,10 @@ weeks = 10;
 
 // objective: if the space remained circular, what would be the radius of this expanded garden?
 
-plant_count = sample_size * 2**weeks;   // yields total amount of plants after 10 weeks
-space_taken = plant_count * plant_area; // calculates total area taken up by the plants
+// yields total amount of plants after 10 weeks
+plant_count = sample_size * 2**weeks;
+// calculates total area taken up by the plants   
+space_taken = plant_count * plant_area; 
 // console.log(plant_count, space_taken);
 
 // assign the plants' occupied area to new garden area (m^2)
@@ -140,9 +142,34 @@ let new_garden_area = space_taken;
 // calculate radius of the new garden area using the JavaScript built-in square root method
 let new_garden_radius = Math.sqrt(new_garden_area / PI);
 console.log(`Under the same constraints but with a sample size of 100 plants and 10 weeks,
-    the radius of the expanded garden would come out to be ${new_garden_radius} meters squared.\n`);
+    the radius of the expanded garden would come out to be ${new_garden_radius} meters.\n`);
 
 
+/* ------------------ Part 3: Errors in Judgement ------------------ */
 
+// given sample_size = 100 & radius = 5;
+/* objective: Use try and catch to wrap your work in an error-handling block. If the amount of space required to
+hold the originally provided number of plants exceeds the amount of space available, throw a new
+error and log an appropriate message */
 
+console.log(`Area of the original 5-meter-radius garden: `, total_area, `meters^2`);
 
+// calculating the area required to fit in the initial 100 plants ...
+weeks = 0;
+plant_count = sample_size * 2**weeks;   
+space_taken = plant_count * plant_area; 
+// console.log(plant_count, space_taken);
+console.log(`With a total area of ${total_area} for the 5-meter long garden and the total amount of area
+    required to place down 100 plants being ${space_taken} meters^2, it had already far exceeded the limit`);
+
+try{
+    if(space_taken < total_area){
+        console.log(`Space is not an issue`);
+    }
+    else{
+        throw "Error - Insufficient space in the garden.";
+    }
+}
+catch(error){
+    console.log(error);
+}
